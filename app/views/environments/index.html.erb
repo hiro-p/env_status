@@ -1,0 +1,32 @@
+<%- model_class = Environment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:usage) %></th>
+      <th><%= model_class.human_attribute_name(:comment) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @environments.each do |environment| %>
+      <tr>
+        <td><%= environment.name %></td>
+        <td><%= environment.usage %></td>
+        <td><%= environment.comment %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_environment_path(environment), :class => 'btn btn-mini' %>
+          
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_environment_path,
+            :class => 'btn btn-primary' %>
