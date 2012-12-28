@@ -44,7 +44,7 @@ class EnvironmentsController < ApplicationController
 
     respond_to do |format|
       if @environment.save
-        format.html { redirect_to @environment, notice: 'Environment was successfully created.' }
+        format.html { redirect_to environments_url, notice: 'Environment was successfully created.' }
         format.json { render json: @environment, status: :created, location: @environment }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class EnvironmentsController < ApplicationController
 
     respond_to do |format|
       if @environment.update_attributes(params[:environment])
-        format.html { redirect_to @environment, notice: 'Environment was successfully updated.' }
+        format.html { redirect_to environments_url, notice: 'Environment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
