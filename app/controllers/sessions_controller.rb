@@ -10,9 +10,9 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id 
     
     session[:role] ||= [] 
-    if auth['user_info']['groups'].include? 'IT'
-      session[:role] << 'admin'
-    end
+    #if auth['user_info']['groups'].include? 'IT'
+    #  session[:role] << 'admin'
+    #end
 
     redirect_to root_url, :notice => "Signed in!"  
   end 
