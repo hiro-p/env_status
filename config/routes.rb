@@ -1,6 +1,16 @@
 EnvStatus::Application.routes.draw do
   resources :environments
 
+  root :to => 'environments#index'
+
+  match "/auth/:provider/callback" => "sessions#create"  
+  match "/signout" => "sessions#destroy", :as => :signout  
+  
+  match "/signin", to: "sessions#new", as: :signin
+  match "/auth/:provider/callback", to: "sessions#create"
+  match "/auth/failure", to: "sessions#failure"
+  match "/logout", to: "sessions#destroy", :as => "logout"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="content">
+      <div class="row">
+        <% if flash[:error] %>
+        <div class="alert alert-error">
+          <%= flash[:error] %>
+        </div>
+        <% end %>
+        <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <Strong><%= flash[:notice] %></Strong>
+        </div>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="login-form">
+          <h2>Login</h2>
+          <%= form_tag "/auth/crowd" do %>
+            <fieldset>
+              <div class="clearfix">
+                <%= text_field_tag :username, nil, :placeholder => "Username" %>
+              </div>
+              <div class="clearfix">
+                <%= password_field_tag :password, nil, :placeholder => "Password" %>
+              </div>
+              <button class="btn primary" type="submit">Sign in</button>
+            </fieldset>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /container -->

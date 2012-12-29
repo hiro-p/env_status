@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
+gem 'thin'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -33,6 +34,9 @@ gem 'jquery-rails'
 
 gem 'simple_form'
 
+gem 'omniauth', '>= 1.0.0'  # We depend on this
+gem "omniauth_crowd", :git => 'git://github.com/robdimarco/omniauth_crowd.git'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -47,3 +51,5 @@ gem 'simple_form'
 
 # To use debugger
 # gem 'debugger'
+
+

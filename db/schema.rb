@@ -11,12 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215011240) do
+ActiveRecord::Schema.define(:version => 20121229000543) do
 
   create_table "environments", :force => true do |t|
     t.string   "name"
     t.string   "usage"
     t.text     "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "token"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
