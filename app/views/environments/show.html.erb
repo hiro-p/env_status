@@ -11,7 +11,7 @@
   <dt><strong><%= model_class.human_attribute_name(:comment) %>:</strong></dt>
   <dd><%= @environment.comment %></dd>
   <dt><strong><%= model_class.human_attribute_name(:details) %>:</strong></dt>
-  <dd><%= RDiscount.new(@environment.details).to_html.html_safe %></dd>
+  <dd><%= RDiscount.new(@environment.details).to_html.html_safe unless @environment.details.nil? %></dd>
 </dl>
 
 <div class="form-actions">
