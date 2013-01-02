@@ -1,2 +1,1 @@
-Simple App to track what purpose our enviroments are assogned to. 
-
+Simple App to track what purpose our environments are assigned to.
