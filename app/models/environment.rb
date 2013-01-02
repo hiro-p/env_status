@@ -1,5 +1,5 @@
 class Environment < ActiveRecord::Base
-  attr_accessible :comment, :name, :usage
+  attr_accessible :comment, :name, :usage, :details
   validates_presence_of :name, :on => :create, :message => "Can't be blank"
   validates_presence_of :usage, :on => :create, :message => "Can't be blank"
 

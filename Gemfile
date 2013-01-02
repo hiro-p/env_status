@@ -37,6 +37,8 @@ gem 'simple_form'
 gem 'omniauth', '>= 1.0.0'  # We depend on this
 gem "omniauth_crowd", :git => 'git://github.com/robdimarco/omniauth_crowd.git'
 
+gem 'rdiscount'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
