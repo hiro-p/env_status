@@ -1,4 +1,4 @@
-enclass InstallAudited < ActiveRecord::Migration
+class InstallAudited < ActiveRecord::Migration
   def self.up
     create_table :audits, :force => true do |t|
       t.column :auditable_id, :integer
