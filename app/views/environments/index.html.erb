@@ -11,14 +11,14 @@
     <tbody>
       <% @environments.each do |environment| %>
         <tr>
-          <td><%= link_to environment.name, environment_path(environment) %></td>
+          <td><%= link_to environment.name, environment_path(environment), :target => "_blank" %></td>
           <td><%= environment.usage %></td>
         </tr>
       <% end %> 
     </tbody>
   </table>
   <hr/>
-  <%= link_to "Environments Home",  environments_path %>
+  <%= link_to "Environments Home",  environments_path, :target => "_blank" %>
 <% else %>
   <div class="page-header">
     <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
