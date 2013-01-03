@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
     
     session[:role] ||= [] 
 
-
     redirect_to root_url, :notice => "Signed in!"  
   end 
 

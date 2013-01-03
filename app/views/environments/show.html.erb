@@ -7,16 +7,45 @@
     <h1><%=t '.title', :default => model_class.model_name.human %></h1>
   </div>
 
-  <dl class="dl-horizontal">
-    <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-    <dd><%= @environment.name %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:usage) %>:</strong></dt>
-    <dd><%= @environment.usage %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:comment) %>:</strong></dt>
-    <dd><%= @environment.comment %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:details) %>:</strong></dt>
-    <dd><%= RDiscount.new(@environment.details).to_html.html_safe unless @environment.details.nil? %></dd>
-  </dl>
+  <div>
+    <dl class="dl-horizontal">
+      <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+      <dd><%= @environment.name %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:usage) %>:</strong></dt>
+      <dd><%= @environment.usage %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:comment) %>:</strong></dt>
+      <dd><%= @environment.comment %></dd>
+      <br/>
+      <dt><strong><%= model_class.human_attribute_name(:details) %>:</strong></dt>
+      <dd><%= RDiscount.new(@environment.details).to_html.html_safe unless @environment.details.nil? %></dd>
+      <br/>
+      <dt><strong>History:</strong></dt>
+      <dd>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Action</th>
+              <th>Changed</th>
+              <th>When</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @environment.audits.each do |audits| %>
+              <tr>
+                <td><%= audits.user.username %></td>
+                <td><%= audits.action %></td>
+                <td><%= audits.audited_changes %></td>  
+                <td><%= audits.created_at.localtime %></td>          
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </dd>
+    </dl>
+  </div>
+
+
 
   <div class="form-actions">
     <%= link_to t('.back', :default => t("helpers.links.back")),
