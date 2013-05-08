@@ -1,4 +1,5 @@
 class EnvironmentsController < ApplicationController
+  skip_before_filter :authenticate_user!, :only => [:index_simple]
   # GET /environments
   # GET /environments.json
   def index
@@ -6,6 +7,17 @@ class EnvironmentsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render json: @environments }
+    end
+  end
+
+  # GET /environments/simple
+  # GET /environments.json
+  def index_simple
+    @environments = Environment.all
+
+    respond_to do |format|
+      format.html # index_simple.html.erb
       format.json { render json: @environments }
     end
   end

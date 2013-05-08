@@ -1,0 +1,20 @@
+<%- model_class = Environment -%>
+
+<table class="table table-striped">
+  <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:name) %></th>
+        <th><%= model_class.human_attribute_name(:usage) %></th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @environments.each do |environment| %>
+      <tr>
+        <td><%= link_to environment.name, environment_path(environment), :target => "_blank" %></td>
+        <td><%= environment.usage %></td>
+      </tr>
+    <% end %> 
+  </tbody>
+</table>
+<hr/>
+<%= link_to "Environments Home",  environments_path, :target => "_blank" %>
