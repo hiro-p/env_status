@@ -31,7 +31,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @environment.audits.each do |audits| %>
+            <% @environment.audits.sort_by { |a| a.created_at.localtime }.reverse.each do |audits| %>
               <tr>
                 <td><%= audits.user.username %></td>
                 <td><%= audits.action %></td>

@@ -1,9 +1,10 @@
 EnvStatus::Application.routes.draw do
+  match "/environments/simple" => 'environments#index_simple'
   resources :environments
 
   root :to => 'environments#index'
 
-  match "/environments/simple" => 'environments#index_simple'
+  
   match "/auth/:provider/callback" => "sessions#create"  
   match "/signout" => "sessions#destroy", :as => :signout  
   
